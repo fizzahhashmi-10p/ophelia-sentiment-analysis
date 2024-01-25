@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hackathon-10pearls</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        body{
+            background-image: url('static/bg.png');
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+        .thinking-bubble{
+            background-image: url('static/thinking-bubble.png');
+            background-repeat:no-repeat;
+            background-size: 100% auto;
+        }
+    </style>
+</head>
+<body>
+    
+
+  <div class="container">
+    <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-title">Ophelia Sentiment Analysis</div>
+    </div>
+
+
+    <div class="inputs float-left">
+      <form method="post" action="{{ url_for('index') }}">
+        <textarea cols="80%" rows="10%" type="text" name="user_input" placeholder="Enter feedback here!" required></textarea>
+        <button type="submit">Analyze</button>
+      </form>
+    </div>
+
+    <div class="float-right">
+      <div class="emoji-container"><img id="output"/></div>
+      <div class="thinking-bubble"><p id="output-text"></p></div>
+    </div>
+
+    <a href="https://twitter.com/prathkum">MADE BY ROBO_REBELS</a>
+  </div>
+    
+</body>
+</html>
+
+<script>
+    // You can remove the previous JavaScript code
+
+    // Example: Call the function with a sentiment label (replace with actual data)
+    const sentimentLabel = "{{ sentiment }}";
+    document.getElementById('output').src = `static/${sentimentLabel}.png`;
+    document.getElementById('output').className = sentimentLabel;
+
+    document.getElementById('output-text').innerText = "{{user_input}}";
+</script>
