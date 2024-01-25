@@ -1,0 +1,3 @@
+- Add model/ folder before code execution
+- Run 'python app.py' to execute
+- Goto http://localhost:5000/
